@@ -2,8 +2,9 @@ package controllers
 
 import (
 	"net/http"
+	"fmt"
 )
-
+var history []string
 func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
 	data := &struct {
 		TransactionId string
@@ -24,5 +25,7 @@ func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
 		data.Success = true
 		data.Response = true
 	}
+	history = append(history, data.TransactionId)
+	fmt.Println("History:",history)
 	renderTemplate(w, r, "request.html", data)
 }
