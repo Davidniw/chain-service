@@ -3,7 +3,7 @@ package controllers
 import (
 	"net/http"
     //"github.com/gorilla/mux"
-    "fmt"
+    //"fmt"
 )
 var history []string
 var input string
