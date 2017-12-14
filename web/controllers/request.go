@@ -6,8 +6,9 @@ import (
 )
 var history []string
 func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
-
-    router.HandleFunc("/add/{input}", TodoShow)
+	
+    router := mux.NewRouter().StrictSlash(true)
+    router.HandleFunc("/add/{input}")
     vars := mux.Vars(r)
     input := vars["input"]
     fmt.Fprintln(w, "input show:", input)
