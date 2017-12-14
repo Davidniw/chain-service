@@ -27,6 +27,6 @@ func (setup *FabricSetup) QueryHello() (string, error) {
 	if err != nil {
 		return "", fmt.Errorf("Create and send transaction proposal return error in the query hello: %v", err)
 	}
-	fmt.Println(transactionProposalResponses)
+	fmt.Println("transactionProposalResponses: ",transactionProposalResponses[transactionProposalResponses.length-1].ProposalResponse.GetResponse().Payload)
 	return string(transactionProposalResponses[0].ProposalResponse.GetResponse().Payload), nil
 }
