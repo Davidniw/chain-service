@@ -9,9 +9,10 @@
 <pre>
     Hello: {{.Hello}}
 </pre>
-    <div ng-repeat="n in [42, 42, 43, 43] track by $index">
-        {{n}}
-    </div>
+    <!--<div ng-repeat="n in [42, 42, 43, 43] track by $index">-->
+        <!--{{n}}-->
+    <!--</div>-->
+
 <table class="table">
   <thead>
     <tr>
@@ -21,8 +22,10 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>History: {{.History}}</td>
+      <th scope="row">1 History: </th>
+        {{range .History}}
+        <td>{{.}}</td>
+        {{end}}
     </tr>
   </tbody>
 </table>
