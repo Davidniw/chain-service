@@ -13,15 +13,13 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Transaction ID</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1 History: </th>
-        {{range .History}} <td>{{.}} </td>{{end}}
-    </tr>
+  {{range .History}}<tr>
+         <td>{{.}} </td>
+    </tr>{{end}}
   </tbody>
 </table>
 
