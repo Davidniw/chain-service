@@ -27,7 +27,7 @@ env-down:
 ##### RUN
 run:
 	@echo "Start app ..."
-	@./heroes-service
+	@./chain-service
 
 ##### CLEAN
 clean: env-down
