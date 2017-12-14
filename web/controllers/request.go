@@ -3,7 +3,6 @@ package controllers
 import (
 	"net/http"
     "github.com/gorilla/mux"
-    "fmt"
 )
 var history []string
 func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
@@ -31,7 +30,6 @@ func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
 		data.Response = true
 	}
 	history = append(history, data.TransactionId)
-	//fmt.Println("History:",history)
 	renderTemplate(w, r, "request.html", data)
 }
 
@@ -39,7 +37,7 @@ func GetRequestHistory() []string {
     return history
 }
 
-func GetInput(w http.ResponseWriter, r *http.Request) {
+func GetInput(w http.ResponseWriter, r *http.Request) string {
     vars := mux.Vars(r)
     input := vars["input"]
     return input
