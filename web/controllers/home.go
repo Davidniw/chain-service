@@ -15,5 +15,6 @@ func (app *Application) HomeHandler(w http.ResponseWriter, r *http.Request) {
 	}{
 		Hello: helloValue,
 	}
+	fmt.Println(r, data)
 	renderTemplate(w, r, "home.html", data)
 }
