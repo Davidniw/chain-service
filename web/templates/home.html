@@ -10,9 +10,20 @@
     Hello: {{.Hello}}
 </pre>
 
-<pre>
-    History: {{.History}}
-</pre>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Transaction ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>History: {{.History}}</td>
+    </tr>
+  </tbody>
+</table>
 
 <a href="request.html">Change the Hello value</a>
 {{end}}
