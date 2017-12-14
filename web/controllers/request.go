@@ -30,6 +30,6 @@ func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, r, "request.html", data)
 }
 
-func (app *Application) GetRequestHistory() {
+func GetRequestHistory() {
     return history
 }

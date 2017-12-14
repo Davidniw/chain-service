@@ -7,7 +7,7 @@ import (
 
 func (app *Application) HomeHandler(w http.ResponseWriter, r *http.Request) {
 	helloValue, err := app.Fabric.QueryHello()
-	var historyValue = app.GetHistory()
+	var historyValue = GetHistory()
 	if err != nil {
 		http.Error(w, "Unable to query the blockchain", 500)
 	}
