@@ -2,9 +2,19 @@ package controllers
 
 import (
 	"net/http"
+    "github.com/gorilla/mux"
 )
 var history []string
 func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
+
+    router.HandleFunc("/add/{input}", TodoShow)
+    vars := mux.Vars(r)
+    input := vars["input"]
+    fmt.Fprintln(w, "input show:", input)
+
+    vars := mux.Vars(r)
+    input := vars["input"]
+
 	data := &struct {
 		TransactionId string
 		Success bool
