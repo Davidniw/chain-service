@@ -26,6 +26,10 @@ func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
 		data.Response = true
 	}
 	history = append(history, data.TransactionId)
-	fmt.Println("History:",history)
+	//fmt.Println("History:",history)
 	renderTemplate(w, r, "request.html", data)
+}
+
+func (app *Application) GetRequestHistory() {
+    return history
 }
