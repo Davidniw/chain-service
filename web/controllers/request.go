@@ -3,12 +3,14 @@ package controllers
 import (
 	"net/http"
     "github.com/gorilla/mux"
+    "fmt"
 )
 var history []string
+var input string
 func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
 
     router := mux.NewRouter().StrictSlash(true)
-    var input = router.HandleFunc("/add/{input}", GetInput)
+    router.HandleFunc("/add/{input}", GetInput)
 
 	data := &struct {
 		TransactionId string
@@ -37,8 +39,8 @@ func GetRequestHistory() []string {
     return history
 }
 
-func GetInput(w http.ResponseWriter, r *http.Request) string {
+func GetInput(w http.ResponseWriter, r *http.Request){
     vars := mux.Vars(r)
     input := vars["input"]
-    return input
+    fmt.Fprintln(w, "data show:", input)
 }
