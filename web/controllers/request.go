@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"net/http"
-	"fmt"
 )
 var history []string
 func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
