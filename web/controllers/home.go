@@ -20,7 +20,7 @@ func (app *Application) HomeHandler(w http.ResponseWriter, r *http.Request) {
 	}{
 		Hello: helloValue,
 		History: historyValue,
-		HistoryVal: dataVal
+		HistoryVal: dataVal,
 	}
 	fmt.Println("Request: ", r,"Data: ", data)
 	renderTemplate(w, r, "home.html", data)
