@@ -33,13 +33,15 @@ func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
 		data.TransactionId = txid
 		data.Success = true
 		data.Response = true
+
+		history = append(history, data.TransactionId)
+        helloValue, err := app.Fabric.QueryHello()
+        if err != nil {
+                http.Error(w, "Unable to query the blockchain", 500)
+            }
+        dataVal = append(dataVal, helloValue)
 	}
-	history = append(history, data.TransactionId)
-	helloValue, err := app.Fabric.QueryHello()
-	if err != nil {
-    		http.Error(w, "Unable to query the blockchain", 500)
-    	}
-	dataVal = append(dataVal, helloValue)
+
 	renderTemplate(w, r, "request.html", data)
 }
 
