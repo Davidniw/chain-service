@@ -18,7 +18,12 @@
     </tr>
   </thead>
   <tbody>
-    {{range .}}<tr> <td>{{.History}} </td> <td>{{.HistoryVal}} </td>  </tr>{{end}}
+  <tr>
+    {{range .History} <td>{{.}} </td> {{end}}
+  </tr>
+  <tr>
+      {{range .HistoryVal} <td>{{.}} </td> {{end}}
+  </tr>
   </tbody>
 </table>
 
