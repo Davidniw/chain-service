@@ -17,10 +17,8 @@
     </tr>
   </thead>
   <tbody>
-  {{range .History}}<tr>
-        <td>{{.History}} </td>
-        <td>{{.Hello}} </td>
-  </tr>{{end}}
+    {{range .History}}<tr> <td>{{.}} </td> {{end}}
+    {{range .Hello}}<td>{{.}} </td> </tr>{{end}}
   </tbody>
 </table>
 
