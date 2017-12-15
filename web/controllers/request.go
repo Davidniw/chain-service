@@ -7,6 +7,11 @@ import (
 )
 var history []string
 var dataVal []string
+type Hell struct {
+		History string
+		DataVal string
+	}
+	var dataStruct []Hell
 var input string
 func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
 
@@ -39,6 +44,12 @@ func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
                 http.Error(w, "Unable to query the blockchain", 500)
             }
         dataVal = append(dataVal, helloValue)
+
+           var list Hell = Hell{
+                {helloValue, dataVal},
+            }
+
+        dataStruct = append(dataStruct, list)
 	}
 
 	renderTemplate(w, r, "request.html", data)
@@ -50,6 +61,10 @@ func GetRequestHistory() []string {
 
 func GetRequestHistoryValues() []string {
     return dataVal
+}
+
+func GetRequestHistoryT() []Hell {
+    return dataStruct
 }
 /*
 func GetInput(w http.ResponseWriter, r *http.Request){
