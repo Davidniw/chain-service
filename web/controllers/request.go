@@ -11,8 +11,7 @@ type Hell struct {
 		History string
 		DataVal string
 	}
-	type dataStruct []Hell
-	var list dataStruct = dataStruct{}
+	var dataStruct []Hell
 var input string
 func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
 
@@ -46,11 +45,11 @@ func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
             }
         dataVal = append(dataVal, helloValue)
 
-           var temp Hell = Hell{
-                {txid, helloValue},
+           var list Hell = Hell{
+                {helloValue, dataVal},
             }
 
-        list = append(list, temp)
+        dataStruct = append(dataStruct, list)
 	}
 
 	renderTemplate(w, r, "request.html", data)
