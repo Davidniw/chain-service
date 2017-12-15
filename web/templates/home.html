@@ -11,17 +11,13 @@
 </pre>
 
 <table class="table-pagination table table-striped table-hover table-condensed table-responsive row-border table-width ngx-body" id="FindCreditorInvoice_SearchResults" page-size="20" empty-label="No results found" show-contextmenu="true">
-  <thead>
-    <tr>
-      <th scope="col">Transaction ID</th>
-      <th scope="col">Value</th>
-    </tr>
-  </thead>
   <tbody>
   <tr>
+      <th scope="row">Key</th>
     {{range .History}} <td>{{.}} </td> {{end}}
   </tr>
   <tr>
+      <th scope="row">Value</th>
       {{range .HistoryVal}} <td>{{.}} </td> {{end}}
   </tr>
   </tbody>
