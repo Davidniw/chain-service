@@ -7,7 +7,7 @@
 <h1>Workflow Ledger</h1>
 
 <pre>
-    Ledger Transactions: {{.Hello}}
+    Ledger Transactions: {{.}}
 </pre>
 
 <table class="table-pagination table table-striped table-hover table-condensed table-responsive row-border table-width ngx-body" id="FindCreditorInvoice_SearchResults" page-size="20" empty-label="No results found" show-contextmenu="true">
@@ -18,21 +18,8 @@
     </tr>
   </thead>
   <tbody>
-    {{range .History}}<tr> <td>{{.}} </td> </tr> {{end}}
-    {{range .HistoryVal}}<tr><td>{{.}} </td> </tr>{{end}}
+    {{range .}}<tr> <td>{{.History}} </td> <td>{{.HistoryVal}} </td>  </tr>{{end}}
   </tbody>
-</table>
-
-<table class="table">
-    <thead>
-    <tr>
-        <th scope="col">Transaction ID</th>
-        <th scope="col">Value</th>
-    </tr>
-    </thead>
-    <tbody>
-    {{range .HistoryObj}}<tr> <td>{{.Guid}} </td>  <td>{{.Value}} </td> </tr> {{end}}
-    </tbody>
 </table>
 
 <a href="request.html">Change the Hello value</a>
