@@ -4,10 +4,10 @@ import (
 	"net/http"
 	"fmt"
 )
-var dataVal []string
+
 func (app *Application) HomeHandler(w http.ResponseWriter, r *http.Request) {
 	helloValue, err := app.Fabric.QueryHello()
-	dataVal = append(dataVal, helloValue)
+	var dataVal = GetRequestHistoryValues()
 	var historyValue = GetRequestHistory()
 	if err != nil {
 		http.Error(w, "Unable to query the blockchain", 500)
@@ -16,9 +16,11 @@ func (app *Application) HomeHandler(w http.ResponseWriter, r *http.Request) {
 	data := &struct {
 		Hello []string
 		History []string
+		HistoryVal []string
 	}{
-		Hello: dataVal,
+		Hello: helloValue,
 		History: historyValue,
+		HistoryVal: dataVal
 	}
 	fmt.Println("Request: ", r,"Data: ", data)
 	renderTemplate(w, r, "home.html", data)

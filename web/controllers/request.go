@@ -6,8 +6,11 @@ import (
     //"fmt"
 )
 var history []string
+var dataVal []string
+var helloValue string
 var input string
 func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
+
 
     //router := mux.NewRouter().StrictSlash(true)
     //router.HandleFunc("/add/{input}", GetInput)
@@ -32,11 +35,17 @@ func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
 		data.Response = true
 	}
 	history = append(history, data.TransactionId)
+	helloValue, err := app.Fabric.QueryHello()
+	dataVal = append(dataVal, helloValue)
 	renderTemplate(w, r, "request.html", data)
 }
 
 func GetRequestHistory() []string {
     return history
+}
+
+func GetRequestHistoryValues() []string {
+    return dataVal
 }
 /*
 func GetInput(w http.ResponseWriter, r *http.Request){
