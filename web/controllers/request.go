@@ -36,6 +36,9 @@ func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	history = append(history, data.TransactionId)
 	helloValue, err := app.Fabric.QueryHello()
+	if err != nil {
+    		http.Error(w, "Unable to query the blockchain", 500)
+    	}
 	dataVal = append(dataVal, helloValue)
 	renderTemplate(w, r, "request.html", data)
 }
