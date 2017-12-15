@@ -7,7 +7,7 @@
 <h1>Home</h1>
 
 <pre>
-    Hello: {{.Hello}}
+    Hello: {{.}}
 </pre>
 
 <table class="table">
@@ -18,8 +18,7 @@
     </tr>
   </thead>
   <tbody>
-    {{range .History}}<tr> <td>{{.}} </td> {{end}}
-    {{range .HistoryVal}}<td>{{.}} </td> </tr>{{end}}
+    {{range .}}<tr> <td>{{.History}} </td> <td>{{.HistoryVal}} </td>  </tr>{{end}}
   </tbody>
 </table>
 
