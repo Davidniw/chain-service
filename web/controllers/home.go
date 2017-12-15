@@ -4,7 +4,11 @@ import (
 	"net/http"
 	"fmt"
 )
-
+type Hell struct {
+		Guid string
+		Value string
+	}
+var dataStruct []Hell
 func (app *Application) HomeHandler(w http.ResponseWriter, r *http.Request) {
 	helloValue, err := app.Fabric.QueryHello()
 	var dataVal = GetRequestHistoryValues()
