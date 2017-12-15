@@ -14,7 +14,7 @@ func (app *Application) HomeHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data := &struct {
-		Hello []string
+		Hello string
 		History []string
 		HistoryVal []string
 	}{
