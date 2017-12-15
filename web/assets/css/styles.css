@@ -1,5 +1,6 @@
 main.container {
     margin-bottom: 100px;
+    background-color: #ffffff;
 }
 
 nav .navbar-brand > img {
@@ -34,7 +35,7 @@ nav .navbar-brand > img {
 }
 body {
     direction: ltr;
-    background-color: #1B1E24;
+    background-color: #e5e9ec;
     color: #333;
     font-family: 'Open Sans',Arial,sans-serif;
     font-size: 14px;
