@@ -7,7 +7,6 @@ import (
 )
 var history []string
 var dataVal []string
-var helloValue string
 var input string
 func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
 
@@ -35,7 +34,7 @@ func (app *Application) RequestHandler(w http.ResponseWriter, r *http.Request) {
 		data.Response = true
 
 		history = append(history, data.TransactionId)
-        helloValue, err := app.Fabric.QueryHello()
+        //helloValue, err := app.Fabric.QueryHello()
         if err != nil {
                 http.Error(w, "Unable to query the blockchain", 500)
             }
